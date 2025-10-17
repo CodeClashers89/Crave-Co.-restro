@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crave & Co. - Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin:0;
+    font-family:'Raleway', sans-serif;
+    background-color:#030303;
+    color:white;
+}
+
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color:#030303;
+    padding:10px 20px;
+}
+
+.navbar .logo img {
+    width:60px;
+    height:60px;
+}
+
+.nav-links {
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+.nav-links li a {
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+}
+
+.nav-links li a:hover {
+    color:rgb(251,218,175);
+}
+
+.hero {
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero h1 {
+    font-family:'Playfair Display', serif;
+    font-size:60px;
+    color:rgb(251,218,175);
+    margin-bottom:10px;
+}
+
+.hero p {
+    font-size:20px;
+    opacity:0.8;
+}
+
+/* Menu section */
+.menu-section {
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.menu-category {
+    margin-bottom:50px;
+}
+
+.menu-category h2 {
+    font-family:'Playfair Display', serif;
+    font-size:32px;
+    color:rgb(251,218,175);
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.menu-items {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:30px;
+}
+
+.menu-item {
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.menu-item:hover {
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(251,218,175,0.4);
+}
+
+.menu-item img {
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.menu-item h3 {
+    font-size:20px;
+    margin-bottom:10px;
+    color:#fbdaad;
+}
+
+.menu-item p {
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:10px;
+}
+
+.menu-item span {
+    font-weight:bold;
+    color:rgb(251,218,175);
+}
+
+footer {
+    text-align:center;
+    padding:20px;
+    color:#fbdaad;
+    background:#030303;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="/static/logo.png" alt="logo"></div>
+        <ul class="nav-links">
+            <li><a href="/index">ABOUT</a></li>
+            <li><a href="/menu">MENU</a></li>
+            <li><a href="/order">ORDER</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Our Menu</h1>
+    <p>Delicious vegetarian Indian Restro dishes</p>
+</section>
+
+<section class="menu-section">
+    <!-- Starters -->
+    <div class="menu-category">
+        <h2>Starters</h2>
+        <div class="menu-items">
+            <div class="menu-item"><h3>Paneer Tikka</h3><p>Spiced cottage cheese grilled to perfection.</p><span>₹180</span></div>
+            <div class="menu-item"><h3>Veg Pakora</h3><p>Mixed vegetables deep-fried in chickpea batter.</p><span>₹120</span></div>
+            <div class="menu-item"><h3>Hara Bhara Kabab</h3><p>Spinach and peas patties with subtle spices.</p><span>₹150</span></div>
+            <div class="menu-item"><h3>Samosa</h3><p>Crispy pastry filled with spiced potatoes.</p><span>₹80</span></div>
+            <div class="menu-item"><h3>Paneer Spring Roll</h3><p>Paneer and veggies wrapped in thin roll and fried.</p><span>₹170</span></div>
+        </div>
+    </div>
+
+    <!-- Main Courses -->
+    <div class="menu-category">
+        <h2>Main Courses</h2>
+        <div class="menu-items">
+            <div class="menu-item"><h3>Butter Paneer</h3><p>Cottage cheese cooked in creamy tomato gravy.</p><span>₹250</span></div>
+            <div class="menu-item"><h3>Paneer Butter Masala</h3><p>Soft paneer cubes in rich buttery tomato gravy.</p><span>₹260</span></div>
+            <div class="menu-item"><h3>Dal Makhani</h3><p>Black lentils simmered with cream and spices.</p><span>₹200</span></div>
+            <div class="menu-item"><h3>Veg Biryani</h3><p>Fragrant basmati rice with vegetables and spices.</p><span>₹220</span></div>
+            <div class="menu-item"><h3>Paneer Kathi Roll</h3><p>Spiced paneer wrapped in soft paratha.</p><span>₹180</span></div>
+            <div class="menu-item"><h3>Veg Thali</h3><p>Complete Indian meal with 4 curries, rice, roti & dessert.</p><span>₹350</span></div>
+            <div class="menu-item"><h3>Chole Bhature</h3><p>Spicy chickpeas served with deep-fried bread.</p><span>₹180</span></div>
+            <div class="menu-item"><h3>Paneer Lababdar</h3><p>Creamy tomato and cashew gravy with paneer.</p><span>₹270</span></div>
+        </div>
+    </div>
+
+    <!-- Desserts -->
+    <div class="menu-category">
+        <h2>Desserts</h2>
+        <div class="menu-items">
+            <div class="menu-item"><h3>Gulab Jamun</h3><p>Soft milk dumplings soaked in sugar syrup.</p><span>₹90</span></div>
+            <div class="menu-item"><h3>Rasgulla</h3><p>Spongy cottage cheese balls in syrup.</p><span>₹90</span></div>
+            <div class="menu-item"><h3>Kheer</h3><p>Traditional rice pudding flavored with cardamom.</p><span>₹100</span></div>
+            <div class="menu-item"><h3>Jalebi</h3><p>Crispy spirals soaked in sugar syrup.</p><span>₹80</span></div>
+            <div class="menu-item"><h3>Rabri</h3><p>Thickened sweetened milk dessert with nuts.</p><span>₹120</span></div>
+        </div>
+    </div>
+
+    <!-- Drinks -->
+    <div class="menu-category">
+        <h2>Beverages</h2>
+        <div class="menu-items">
+            <div class="menu-item"><h3>Masala Chai</h3><p>Traditional spiced tea with milk.</p><span>₹60</span></div>
+            <div class="menu-item"><h3>Filter Coffee</h3><p>Strong south Indian coffee brewed to perfection.</p><span>₹70</span></div>
+            <div class="menu-item"><h3>Lassi</h3><p>Refreshing sweet or salty yogurt drink.</p><span>₹90</span></div>
+            <div class="menu-item"><h3>Mango Shake</h3><p>Fresh mango blended with milk and ice.</p><span>₹120</span></div>
+            <div class="menu-item"><h3>Cold Coffee</h3><p>Chilled coffee blended with ice and milk.</p><span>₹130</span></div>
+            <div class="menu-item"><h3>Soft Drinks</h3><p>Chilled coke, thumps up, mazza and sprite (750ml)</p><span>₹50</span></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Crave & Co. All rights reserved.
+</footer>
+
+</body>
+</html>

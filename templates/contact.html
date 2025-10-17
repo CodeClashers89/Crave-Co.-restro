@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crave & Co. - Contact Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: #030303;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #030303;
+    padding: 10px 20px;
+}
+
+.navbar .logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: rgb(251,218,175);
+}
+
+/* Contact Section */
+.contact-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: #111;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(251,218,175,0.2);
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h1 {
+    color: rgb(251,218,175);
+    font-family: 'Playfair Display', serif;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+}
+
+button {
+    background: rgb(251,218,175);
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 25px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e0c48f;
+}
+
+/* Map */
+.map {
+    width: 100%;
+    margin-top: 30px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #fbdaad;
+    background: #030303;
+    margin-top: 50px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="/static/logo.png" alt="logo"></div>
+        <ul class="nav-links">
+            <li><a href="/">ABOUT</a></li>
+            <li><a href="/menu">MENU</a></li>
+            <li><a href="/order">ORDER</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="contact-container">
+    <div class="contact-info">
+        <h1>Contact Us</h1>
+        <p><strong>Crave & Co.</strong></p>
+        <p>📍 123 Aroma Street, Ahmedabad, Gujarat, India</p>
+        <p>📞 +91 9274482285</p>
+        <p>✉️ contact@craveandco.in</p>
+        <p>🕐 Open Hours:<br>Monday – Sunday: 9 AM – 11 PM</p>
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.215309541817!2d72.87765521487925!3d23.039574384946927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f0c5eb4f89%3A0x9e75d6d7c09e24!2sAhmedabad!5e0!3m2!1sen!2sin!4v1680987042305!5m2!1sen!2sin" 
+        width="100%" height="250" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div class="contact-form">
+        <h1>Send Us a Message</h1>
+        <form id="contactForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div id="successMsg" style="display:none; text-align:center; color:rgb(251,218,175); margin-top:20px;">
+            ✅ Thank you for contacting us! We'll get back to you soon.
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Crave & Co. All rights reserved.
+</footer>
+
+<script>
+const API_URL = ""; // Change this to your server URL
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    if (!name || !email || !phone || !message) {
+        alert('Please fill all fields.');
+        return;
+    }
+    
+    const contactData = {
+        name,
+        email,
+        phone,
+        message
+    };
+    
+    try {
+        const response = await fetch(`${API_URL}/api/contact`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(contactData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            document.getElementById('successMsg').style.display = 'block';
+            this.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMsg').style.display = 'none';
+            }, 5000);
+        } else {
+            alert('❌ Error sending message. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('❌ Error sending message. Please make sure the server is running.');
+    }
+});
+</script>
+
+</body>
+</html>

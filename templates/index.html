@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro-Crave & Co.</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #030303;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #030303;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            position: relative;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        
+        .nav-links li a:hover {
+            color: rgb(251, 218, 175);
+        }
+
+        .hero {
+            width: 100%;
+            height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #030303;
+            /* dark background */
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 70px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: rgb(251, 218, 175);
+            text-transform: uppercase;
+            animation: fadeInDown 2s ease forwards;
+        }
+
+        .hero-text p {
+            font-family: 'Raleway', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            opacity: 0.8;
+            animation: fadeInUp 2s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(251, 218, 175);
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+            animation: bounce 1.5s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .content-section {
+            width: 100%;
+            padding: 60px 20px;
+            background-color: #030303;
+            /* optional background */
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+            /* for mobile responsiveness */
+            background-color: #030303;
+        }
+
+        .content.reverse {
+            flex-direction: row-reverse;
+            /* swap text and image */
+        }
+
+        .text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .text h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .text p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            /* optional styling */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+       .hero {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #030303; /* dark background */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero text */
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 70px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: rgb(251, 218, 175);
+    text-transform: uppercase;
+    animation: fadeInDown 2s ease forwards;
+}
+
+.hero-text p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    opacity: 0.8;
+    animation: fadeInUp 2s ease forwards;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #030303;
+    background-color: rgb(251, 218, 175);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(251,218,175,0.5);
+}
+
+/* Floating shapes */
+.hero-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(251, 218, 175, 0.05);
+}
+
+.shape1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 15%;
+    animation: float 12s ease-in-out infinite;
+}
+
+.shape2 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    right: 20%;
+    animation: float 15s ease-in-out infinite;
+}
+
+.shape3 {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 70%;
+    animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Scroll text */
+.scroll-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(251, 218, 175);
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.content-section .text h2{
+    text-align: center;
+    color: rgb(251, 218, 175); /* white text for dark background */
+}
+.content-section .text p {
+    text-align: center;
+    color: rgb(255, 244, 231); /* white text for dark background */
+}
+.royal-heading {
+    text-align: center;
+    color: #fbdaad; /* gold accent */
+    margin-bottom: 40px;
+}
+
+.royal-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* Top pattern */
+.royal-heading h2::before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 1px;
+    background-color: #fbdaad;
+    margin: 0 auto 10px auto;
+    position: relative;
+}
+
+
+/* Bottom line */
+.royal-heading p::before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 1px;
+    background-color: #fbdaad;
+    margin: 20px auto 10px auto;
+}
+  
+.royal-heading p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: #e0e0e0; /* light gray text for dark bg */
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/static/logo.png" alt="logo" width="60px" height="60px">
+            </div>
+            <ul class="nav-links">
+                <li><a href="">ABOUT</a></li>
+                <li><a href="/menu">MENU</a></li>
+                <li><a href="/order">ORDER</a></li>
+                <li><a href="/booking">BOOKING</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+    <div class="hero-text">
+        <h1>Crave & Co.</h1>
+        <p>Where elegance meets flavor</p>
+        <a href="/menu" class="hero-btn">Explore Menu</a>
+    </div>
+    
+    <!-- Decorative floating shapes -->
+    <div class="hero-shapes">
+        <span class="shape shape1"></span>
+        <span class="shape shape2"></span>
+        <span class="shape shape3"></span>
+    </div>
+
+    <div class="scroll-text">Scroll Down ⬇</div>
+</section>
+
+
+        <section class="content-section">
+            <div class="content">
+                <div class="royal-heading">
+                    <h2>The Space: Your Daily Escape</h2>
+                    <p>Step into an atmosphere designed for comfort and connection. With warm lighting, natural wood accents, and cozy seating, Crave & Co. is the perfect sanctuary for solo contemplation, casual meetings, or catching up with friends. Make our space your favorite place.</p>
+                </div>
+                <div class="image">
+                    <img src="/static/cafe-int.jpg" alt="Cafe interior">
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="content reverse">
+                <div class="royal-heading">
+                    <h2>Our Menu: Crafted with Crave</h2>
+                    <p>More than just a meal—it's an experience. From freshly baked pastries and signature coffee blends to hearty vegetarian options and gourmet sandwiches, every item on our menu is prepared with passion and the finest local ingredients. Find your perfect pairing and satisfy your daily craving.</p>
+                </div>
+                <div class="image">
+                    <img src="/static/cafe-food.jpeg" alt="Image 2">
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

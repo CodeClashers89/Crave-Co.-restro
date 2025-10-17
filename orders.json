@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Poojan Kamani",
+    "phone": "9274482285",
+    "address": "iitram residential campus",
+    "cart": [
+      {
+        "item": "Paneer Tikka",
+        "qty": 1,
+        "price": 180,
+        "total": 180
+      },
+      {
+        "item": "Veg Biryani",
+        "qty": 1,
+        "price": 220,
+        "total": 220
+      },
+      {
+        "item": "Chole Bhature",
+        "qty": 1,
+        "price": 180,
+        "total": 180
+      },
+      {
+        "item": "Soft Drink (750ml)",
+        "qty": 2,
+        "price": 50,
+        "total": 100
+      },
+      {
+        "item": "Gulab Jamun",
+        "qty": 2,
+        "price": 90,
+        "total": 180
+      }
+    ],
+    "grandTotal": 860,
+    "timestamp": "2025-10-13 19:29:48",
+    "status": "Delivered",
+    "id": 1
+  },
+  {
+    "name": "gtfujvg",
+    "phone": "9274421856",
+    "address": "bguhjkmgbhnjgbhnj",
+    "cart": [
+      {
+        "item": "Samosa",
+        "qty": 4,
+        "price": 80,
+        "total": 320
+      },
+      {
+        "item": "Veg Thali",
+        "qty": 1,
+        "price": 350,
+        "total": 350
+      },
+      {
+        "item": "Rabri",
+        "qty": 1,
+        "price": 120,
+        "total": 120
+      }
+    ],
+    "grandTotal": 790,
+    "timestamp": "2025-10-13 22:18:35",
+    "status": "Preparing",
+    "id": 2
+  },
+  {
+    "name": "Neel Patel",
+    "phone": "9876845690",
+    "address": "IITRAM kotha, near AMC Dental College...",
+    "cart": [
+      {
+        "item": "Paneer Lababdar",
+        "qty": 1,
+        "price": 270,
+        "total": 270
+      },
+      {
+        "item": "Chole Bhature",
+        "qty": 3,
+        "price": 180,
+        "total": 540
+      },
+      {
+        "item": "Dal Makhani",
+        "qty": 2,
+        "price": 200,
+        "total": 400
+      },
+      {
+        "item": "Rasgulla",
+        "qty": 2,
+        "price": 90,
+        "total": 180
+      },
+      {
+        "item": "Rabri",
+        "qty": 2,
+        "price": 120,
+        "total": 240
+      },
+      {
+        "item": "Paneer Spring Roll",
+        "qty": 5,
+        "price": 170,
+        "total": 850
+      }
+    ],
+    "grandTotal": 2480,
+    "timestamp": "2025-10-13 22:25:19",
+    "status": "Pending",
+    "id": 3
+  }
+]

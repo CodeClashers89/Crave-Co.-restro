@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crave & Co. - Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: #030303;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #030303;
+    padding: 10px 20px;
+}
+
+.navbar .logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.nav-links li a:hover {
+    color: rgb(251,218,175);
+}
+
+.container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(251,218,175,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: rgb(251,218,175);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+}
+
+button {
+    background: rgb(251,218,175);
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 25px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e0c48f;
+}
+
+.confirm {
+    display: none;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(251,218,175);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #fbdaad;
+    background: #030303;
+    margin-top: 50px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="/static/logo.png" alt="logo"></div>
+        <ul class="nav-links">
+            <li><a href="/">ABOUT</a></li>
+            <li><a href="/menu">MENU</a></li>
+            <li><a href="/order">ORDER</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Book a Table</h1>
+
+    <form id="bookingForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <label for="people">Number of Guests</label>
+        <select id="people" required>
+            <option value="">-- Select --</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+            <option value="6">6+ People (if 6+ then specify number in requirements)</option>
+        </select>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Time</label>
+        <input type="time" id="time" required>
+
+        <label for="requests">Special Requests</label>
+        <textarea id="requests" rows="3" placeholder="Any special requirements?"></textarea>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div class="confirm" id="confirmBox">
+        ✅ Thank you! Your table has been booked successfully.  
+        <br><br>
+        We look forward to serving you at <strong>Crave & Co.</strong> 🍽️
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Crave & Co. All rights reserved.
+</footer>
+
+<script>
+const API_URL = ""; // Change this to your server URL
+
+document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const people = document.getElementById('people').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const requests = document.getElementById('requests').value.trim();
+
+    if (!name || !phone || !people || !date || !time) {
+        alert("⚠️ Please fill all required fields.");
+        return;
+    }
+
+    const bookingData = {
+        name,
+        phone,
+        people,
+        date,
+        time,
+        requests
+    };
+
+    try {
+        const response = await fetch(`${API_URL}/api/booking`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bookingData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            document.getElementById('confirmBox').style.display = 'block';
+            this.reset();
+            
+            // Hide confirmation after 5 seconds
+            setTimeout(() => {
+                document.getElementById('confirmBox').style.display = 'none';
+            }, 5000);
+        } else {
+            alert('❌ Error making booking. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('❌ Error making booking. Please make sure the server is running.');
+    }
+});
+</script>
+
+</body>
+</html>
